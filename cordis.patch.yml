@@ -1,0 +1,5 @@
+# Loader row for dsh-stats-sparkline. The host half is a no-op; the browser half
+# (exports ./client, declared by dsh.client in package.json) owns all rendering.
+- insert:
+    - id: dsh-stats-sparkline
+      name: dsh-stats-sparkline

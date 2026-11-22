@@ -1,0 +1,76 @@
+{
+  "name": "dsh-stats-sparkline",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "DeepSeek Harness Web UI plugin: shadows the composer stats pills and charts their numbers over time — window-pooled cache-hit rate, differentiated token rates, and a token breakdown chip. 底部统计的弹窗里加随时间变化的折线图。",
+  "license": "MIT",
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "client-plugin",
+    "web-ui",
+    "sparkline",
+    "chart",
+    "cache-hit",
+    "token-usage",
+    "observability",
+    "折线图",
+    "缓存命中率"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.0-rc.1 <0.2.0 || >=0.2.0 <0.3.0-0 || >=0.2.2-0 <0.3.0-0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "node --test --test-timeout=20000 test/series.test.mjs test/registration.test.mjs test/render.test.mjs test/locale.test.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-primitives",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "dshhub": {
+    "schemaVersion": 1,
+    "displayName": "dsh-stats-sparkline",
+    "summary": "把对话框底部统计药丸的数值画成随时间变化的折线图：缓存命中率用窗口合并比率、token 用对时间微分，另有一个 Token 构成 chip（输入/缓存/输出）。纯浏览器侧、零依赖、不联网、不落盘。",
+    "categories": [
+      "Web UI",
+      "观测"
+    ],
+    "surfaces": [
+      "web"
+    ],
+    "capabilities": {},
+    "compatibility": {
+      "dsh": ">=0.1.7-rc.1",
+      "node": ">=20"
+    },
+    "permissions": {}
+  }
+}
