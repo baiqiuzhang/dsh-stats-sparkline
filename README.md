@@ -1,5 +1,7 @@
 # dsh-stats-sparkline
 
+**[English](README.en.md) | 中文**
+
 在 DSH Web GUI「对话框最下方那行统计」里做两件事：
 
 1. 用**遮蔽（shadowing）**接管官方统计单元格，弹窗里除原有数值外再显示一块**随时间变化的折线图**；鼠标移到药丸上即弹出，不用点击。
